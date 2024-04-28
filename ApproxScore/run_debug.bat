@@ -1,0 +1,1 @@
+dotnet run "hello" "hola"

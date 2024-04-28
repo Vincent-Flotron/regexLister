@@ -1,0 +1,11 @@
+short description;search regex;replacement regex
+display the delete;^( +)delete (.*?)\.;$1put 'debug: delete $2':U skip. \r\n$1delete $2.
+update the entry;^( +)update (.*?)\.;$1put 'debug: update $2':U skip. \r\n$1update $2.
+create a new record;^( +)create (.*?)\.;$1put 'debug: create $2':U skip. \r\n$1create $2.
+search for records;^( +)search (.*?)\.;$1put 'debug: search $2':U skip. \r\n$1search $2.
+list all entries;^( +)list all entries\.;$1put 'debug: list all entries':U skip. \r\n$1list all entries.
+find the item;^( +)find the (.*?)\.;$1put 'debug: find the $2':U skip. \r\n$1find the $2.
+delete all;^( +)delete all\.;$1put 'debug: delete all':U skip. \r\n$1delete all.
+update this entry;^( +)update this (.*?)\.;$1put 'debug: update this $2':U skip. \r\n$1update this $2.
+remove the item;^( +)remove the (.*?)\.;$1put 'debug: remove the $2':U skip. \r\n$1remove the $2.
+create a new item;^( +)create a new (.*?)\.;$1put 'debug: create a new $2':U skip. \r\n$1create a new $2.
