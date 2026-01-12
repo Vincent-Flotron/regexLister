@@ -10,7 +10,7 @@ def approx_score(searchable_list, to_search):
         # Convert searchable_list to JSON string
         searchable_list_json = json.dumps(searchable_list)
         # Call the external executable with arguments
-        result = subprocess.run([make_path_from_relative(r"bin/Release/net7.0/ApproxScore"), searchable_list_json, to_search], capture_output=True, text=True)
+        result = subprocess.run([make_path_from_relative(r"bin/Release/net10.0/win-x64/publish/ApproxScore"), searchable_list_json, to_search], capture_output=True, text=True)
         # Check if the process ran successfully
         if result.returncode == 0:
             # Parse the JSON output

@@ -1,5 +1,6 @@
 import sqlite3
 import csv
+import os
 
 db_name = 'regex_database.db'
 
@@ -24,8 +25,13 @@ def create_database():
 def fill_table():
     conn = sqlite3.connect(db_name)
     c = conn.cursor()
-    
-    with open('regex_to_load.csv', 'r') as file:
+
+    # Get the directory of the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # Construct the full path to the CSV file
+    csv_path = os.path.join(script_dir, 'regex_to_load.csv')
+
+    with open(csv_path, 'r') as file:
         reader = csv.reader(file, delimiter=';')
         next(reader)  # Skip header
         for row in reader:
