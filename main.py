@@ -4,6 +4,7 @@ from DbConnection   import DbConnection
 from RegexRecord    import RegexRecord, RegexRecordsList
 from Configuration  import Configuration
 from DefaultConfig  import DefaultConfig
+import os
 
 # Read settings from config file
 config         = Configuration()
@@ -12,8 +13,11 @@ initial_height = int(config.read_value('Window', 'height', DefaultConfig.get_hig
 
 # Function to perform approximative search
 def approximativeSearch(input_text):
-    db_conn    = DbConnection('regex_database.db')
-    table_name = 'regex'
+    db_relative_path = 'regex_database.db'
+    db_path          = os.path.join(os.path.dirname(__file__), db_relative_path)
+
+    db_conn          = DbConnection(db_path)
+    table_name       = 'regex'
 
     # Execute SQL query to fetch records
     records = db_conn.execute_query(f"SELECT id, short_description FROM {table_name} ORDER BY id")
